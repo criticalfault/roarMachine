@@ -18,6 +18,7 @@
 	<div class='container'>
 		<div class='row'>
 			<div class='btn btn-success btn-block col-sm-6 col-xs-10' onclick="roar()">T-Rex ROAR!</div>
+			<div class='btn btn-success btn-block col-sm-6 col-xs-10' onclick="stego()">T-Rex ROAR!</div>
 		</div>
 	<div>
 	<hr>
@@ -32,7 +33,21 @@
 			})
 			  .done(function( ) {
 			  	console.log("Roar Activated!");
-			 
+			 	alert("T-Rex ROAR!");
+			  })
+		  .fail(function() {
+		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
+		 	});
+		}
+		function stego()
+		{
+			$.ajax({
+			  method: "POST",
+			  url: "/stego",
+			})
+			  .done(function( ) {
+			  	console.log("Stego Roar Activated!");
+			 	alert("Stego ROAR!");
 			  })
 		  .fail(function() {
 		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
