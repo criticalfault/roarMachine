@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Spooky Lamp Control Panel</title>
+	<link 
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" 
+		rel="stylesheet" 
+		integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+	<script
+ 		src="https://code.jquery.com/jquery-3.2.1.min.js"
+  		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  		crossorigin="anonymous"></script>
+</head>
+<body>
+	<h1 style="text-align: center;">Roar Machine v1.0</h1>
+	<hr>
+
+	<div class='container'>
+		<div class='row'>
+			<div class='btn btn-success btn-block col-sm-6 col-xs-10' onclick="roar()">T-Rex ROAR!</div>
+		</div>
+	<div>
+	<hr>
+		<div onclick="shutdown()" class="btn btn-danger btn-block col-sm-6 col-xs-10">Shutdown Roar Machine</div>
+	<script type="text/javascript">
+		
+		function roar()
+		{
+			$.ajax({
+			  method: "POST",
+			  url: "/roar",
+			})
+			  .done(function( ) {
+			  	console.log("Roar Activated!");
+			 
+			  })
+		  .fail(function() {
+		    alert( "Connection to the Spooky Lamp couldn't be Established. Contact Dean" );
+		 	});
+		}
+
+		
+	</script>
+</body>
+</html>
